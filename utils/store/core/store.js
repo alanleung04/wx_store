@@ -1,7 +1,8 @@
 // 将数据的每一项转为proxy
 import {observe} from './observer';
 import {actionHandler} from './action';
-import {mutationHandler} from './mutation'
+import {mutationHandler} from './mutation';
+import {getterHandler} from './getter';
 wx.DEBUG = true;
 // 更新页面state
 function updateState(obj) {
@@ -57,8 +58,15 @@ class Store {
     this.handleState(options.state);
     this.handleMutation(options.mutation);
     this.handleAction(options.action);
+    this.handleGetter(options.getter);
     // 订阅者
     this.subs = []
+  }
+
+  handleGetter(getter) {
+    if (getter) {
+      getterHandler(getter, this);
+    }
   }
 
   // 初始化action

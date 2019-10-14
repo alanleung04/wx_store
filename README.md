@@ -4,7 +4,7 @@
 - [x] State
 - [x] Mutation
 - [x] Action
-- [ ] Getter
+- [x] Getter
 - [ ] Module
 
 ## 初始化
