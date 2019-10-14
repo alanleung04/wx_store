@@ -16,6 +16,7 @@ Page({
     })
   },
   onLoad: function () {
+    wx.$store.setWatcher(this);
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

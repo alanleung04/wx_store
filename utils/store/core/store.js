@@ -5,7 +5,10 @@ import {mutationHandler} from './mutation'
 wx.DEBUG = true;
 // 更新页面state
 function updateState(obj) {
-  this.setData(obj);
+  let data = {
+    state: obj
+  }
+  this.setData(data);
 }
 
 
@@ -77,7 +80,7 @@ class Store {
   handleState(data) {
     // observe
     state = data;
-    _state = observe(data, true)
+    _state = observe(data, 'state')
   }
 
   get state() {
