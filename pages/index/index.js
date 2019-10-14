@@ -51,5 +51,8 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  addItem() {
+    wx.$store.fetch('addKey', 4)
   }
 })
